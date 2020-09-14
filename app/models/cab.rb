@@ -2,12 +2,12 @@ class Cab < ApplicationRecord
 
   has_many :trips
 
-  validates_presence_of :registration_number, :status, :lat, :long
+  validates_presence_of :reg_num, :status, :lat, :long
 
   STATUS = %w(booked available)
 
   validates_inclusion_of :status, in: STATUS
-  validates_uniqueness_of :registration_number
+  validates_uniqueness_of :reg_num
 
   scope :available_cabs, -> { where(status: 'available').order(created_at: 'desc') }
   scope :pink_available_cabs, -> { available_cabs.where(color: 'pink') }
