@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This demo cab booking app is built using RAILS 6 and postgresql as the DB.
 
-Things you may want to cover:
+Steps to run:
 
-* Ruby version
+1. clone the application and cd into the app.
 
-* System dependencies
+2. bundle
 
-* Configuration
+3. make sure you have the database.yml creds according your local machine.
 
-* Database creation
+4. rake db:create
+   rake db:migrate
+   rake db:seed
 
-* Database initialization
+5. Once the above steps are successful, you can start testing in Postman, since this a api only app.
 
-* How to run the test suite
+6. To get the list of all Cabs.
 
-* Services (job queues, cache servers, search engines, etc.)
+   GET localhost/cabs
 
-* Deployment instructions
+7. To book a nearest Pink Cab
 
-* ...
+   POST /cabs/book-nearest
+
+   params:
+
+   {
+     "lat" : 1,
+     "long" : 1
+     "customer_id" : 1
+     "color" : "pink"
+   }
+
+ 8. To start a trip.
+
+    POST /trips/1/start
+
+    {
+      "lat":1,
+      "long": 1
+    }
+
+ 9. TO END A TRIP.
+
+    POST /trips/1/end    
+
+    {
+      "lat":1,
+      "long": 1
+    }            
